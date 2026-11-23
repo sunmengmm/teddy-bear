@@ -1,15 +1,27 @@
 # 毛绒小熊
 
-[在线玩《毛绒小熊》](https://sunmengmm.github.io/teddy-bear/)
+一个可以按肚子、顺毛摸、牵爪和拎起来的 3D 毛绒玩具小游戏。
 
-一个可以用鼠标互动的 3D 毛绒玩具小游戏。可以按住肚子、顺毛摸、点前爪招手，也可以抓住前爪、耳朵或脚掌拎起来。拖动空白处可以转动视角。
+[在线体验](https://sunmengmm.github.io/teddy-bear/) · [GitHub 仓库](https://github.com/sunmengmm/teddy-bear)
 
-## 打开游戏
+## 操作
 
-用支持 WebGPU 的新版 Chrome 或 Edge 打开 `index.html`。这个 HTML 已包含小熊模型、绒毛和交互，可以离线运行。
+点击前爪招手，拖动前爪、耳朵或脚掌拎起小熊；拖动空白处旋转视角，点击“重置”恢复初始状态。
 
-## 发布到 GitHub Pages
+## 本地运行
 
-将仓库的 `main` 分支推送到 GitHub，在仓库的 Settings → Pages 选择 `Deploy from a branch`，将发布源设为 `main` 分支的 `/(root)` 并保存。[GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch)
+需要 Python 3 和支持 WebGPU 的浏览器，无需安装依赖。在项目目录运行：
 
-`blender/` 存放制作文件，`references/` 存放参考资料，`web/` 是原在线版的源码仓库。Git 忽略这些目录和离线副本 `毛绒小熊.html`。GitHub Pages 使用 `index.html`。
+```sh
+python3 -m http.server 5173 --bind 127.0.0.1
+```
+
+访问 <http://127.0.0.1:5173>，按 `Ctrl+C` 停止服务。
+
+## 文件
+
+`index.html` 包含完整游戏。`blender/`、`references/`、`web/` 和离线副本 `毛绒小熊.html` 仅保存在本地，已被 Git 忽略。
+
+## 发布
+
+GitHub Pages 使用 `main` 分支的 `/(root)` 目录。修改后提交并推送到 GitHub，网站会自动更新；仅保存本地文件不会更新网站。
